@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Abishek Franklin Mariadoss</title>
+<link rel="stylesheet" href="style.css">
+<style>
+a:link{color:white;}
+a:visited{color:#f1eb9c;}
+ul {
+        list-style-type: square; /* Change to disc, circle, etc. */
+        margin-left: 20px; /* Adjust the margin as needed */
+}
+.container {
+  width: 800px; /* Set your desired fixed width */
+  margin: 0 auto; /* Center the container horizontally */
+}
+.container table {
+  width: 100%;
+  border-collapse: collapse; /* Remove spacing between table cells */
+}
+.container table td {
+  padding: 0; /* Remove padding to eliminate gaps */
+  box-sizing: border-box; /* Include padding in the width calculation */
+  text-align: center; /* Center the content horizontally */
+  width: 20%; /* Set a fixed width for table cells */
+}
+.container table img {
+  width: 100%; /* Ensure images fill the table cell */
+  height: auto; /* Maintain aspect ratio */
+  max-width: 200px; /* Set the maximum width for all images */
+  max-height: 150px; /* Set the maximum height for all images */
+  transition: transform 0.2s; /* Add a smooth transition effect for scaling */
+}
+.container table img:hover {
+  transform: scale(1.2); /* Scale up the image on hover */
+}
+.left-align {
+    text-align: left;
+    display: inline-block; /* Ensure they appear on the same line */
+}
+
+.right-align {
+    text-align: right;
+    display: inline-block; /* Ensure they appear on the same line */
+}
+</style>
+</head>
+<body>
+<div class="container">
+<script>
+//slideshow function based on lab 12
+function slideRight()
+{
+	var temp=document.getElementById('pic5').src;//temporary variable to hold pic 5
+	document.getElementById('pic5').src=document.getElementById('pic4').src;
+	document.getElementById('pic4').src=document.getElementById('pic3').src;
+	document.getElementById('pic3').src=document.getElementById('pic2').src;
+	document.getElementById('pic2').src=document.getElementById('pic1').src;
+	document.getElementById('pic1').src=temp;
+}
+//some other functions that change around the css
+//this will not be said on my page it's for users to discover hence secret secret
+function Changing()
+{
+	document.body.style.backgroundColor="brown";
+}
+function threeparam(a,b,c)
+{
+	document.getElementById(a).innerHTML=b;
+	document.getElementById(a).style.color=c;
+}
+</script>
+
+<header>
+<h1>Abishek Franklin Mariadoss</h1>
+<h4>Data Scientist | Machine Learning | Data Analyst</h4>
+</header>
+
+<nav class="navigation">
+<img align="left" onclick="Changing()" src="Pictures/qbi.png" alt="Profile" height="92.5" width="100">
+<ul class="lst">
+<li align="right"><a href="#Summary">Summary</a></li>
+<li align="right"><a href="#edu">Education</a></li>
+<li align="right"><a href="#wrk">Professional Experience</a></li>
+<li align="right"><a href="#crt">Certification</a></li>
+<li align="right"><a href="#rsh">Research & Projects</a></li>
+<ul>
+</nav>
+
+<main class="mane">
+<div class="divisions">
+
+<h2 id="Summary"> SUMMARY</h2>
+<p align="justify">Versatile data enthusiast who combines a good theoretical foundation with realworld industrial knowledge. Capable of making data-driven decisions, with a track
+	record of collaboration and leadership in a variety of team settings that
+	demonstrates great interpersonal abilities.</p>
+</div>
+
+<div class="divisions">
+<h2 id="edu">EDUCATION</h2>
+<table>
+	<tr>
+	  <td style="text-align: left;">Master of Science, Computer Science</td>
+	  <td style="text-align: right;">Jan 2023 - Till Date</td>
+	</tr>
+	<tr>
+		<td style="text-align: left;">University of South Carolina</td>
+	  <td style="text-align: right;">GPA  :   <img align="right" src="Pictures/smiley.jpeg" alt="GPA" onclick="alert(3.68);" style="height: 25px; width: 25px;"></td>
+	</tr>
+</table>
+<br>
+<table>
+	<tr>
+		<td style="text-align: left;">Bachelor of Technology, Electrical & Electronics Engineering</td>
+		<td style="text-align: right;">June 2014 - April 2018</td>
+	</tr>
+	<tr>
+		<td style="text-align: left;">Amrita Vishwa Vidyapeetham</td>
+	 	<td style="text-align: right;">GPA  :   <img align="right" src="Pictures/smiley.jpeg" alt="GPA" onclick="alert(7.04);" style="height: 25px; width: 25px;"></td>
+	</tr>
+</table>
+</div>
+
+<div class="divisions">
+<h2 id="wrk">PROFESSIONAL EXPERIENCE</h2>
+<table>
+	<tr>
+	  <td style="text-align: left;">Optum - UnitedHealth Group - <span style="font-style: italic;">Associate Data Engineering Analyst</span></td>
+	  <td style="text-align: right;">Sep 2020 - Jan 2023</td>
+	</tr>
+</table>
+<ul>
+    <li style="text-align: justify;">Owned a stand-alone auto-ticket creation automation developed in Python
+		using various APIs for monitoring the extraction process, that performed
+		about 99% accurate with the actual missing data validation.</li>
+    <li style="text-align: justify;">Owned and maintained an internal file receival monitoring tool, providing
+		support and updates.</li>
+    <li style="text-align: justify;">Collaborated with clients to address data-related challenges and
+		accommodate extraction modifications.</li>
+	<li style="text-align: justify;">Served as a Subject Matter Expert for the 835 & 837 files (patient claim
+		information). Also, presented a client-facing Reference Guide for the
+		Monitoring Tool.</li>
+	<li style="text-align: justify;">Worked on ETL (Extract, Transform and Loading) process of all the PHI and
+		financial files. Addressed various gaps with client on data level user issues.</li>
+	<li style="text-align: justify;">Developed a Python script for comparative validation of files between SVN
+		& GitHub. Along with that contributed to a migration project that replaced
+		the outdated AQT tool with Python.</li>
+	<li style="text-align: justify;">Utilized various tools, including AQT (SQL), GitHub, Jenkins, Unix (putty),
+		Rally, JIRA, Python (JSON files), Database & Virtual Systems, PowerShell,
+		batch, and gained proficiency in utilizing AWS tools.</li>
+</ul>	
+<br>
+<table>
+	<tr>
+	  <td style="text-align: left;">Mu Sigma, Inc - <span style="font-style: italic;">Trainee Decision Scientist</span></td>
+	  <td style="text-align: right;">Jun 2018 - Jul 2018</td>
+	</tr>
+</table>
+<ul>
+    <li style="text-align: justify;">Performed Exploratory Data Analysis (EDA) by pre-processing and cleansing the data & Data Exploration for the Model
+		Selection.</li>
+	<li style="text-align: justify;">Selection of null and alterante hypothesis and performed Hypothesis Testing for identifying p-values for various models.</li>
+	<li style="text-align: justify;">Performed Sentiment Analysis of customer text data and improved the performance strategy by almost 10%.</li>
+	<li style="text-align: justify;">Data Visualization of Statistical data over the predictions.</li>
+	<li style="text-align: justify;">Identified the best campaign strategy for Johnson & Johnson pharmaceuticals with a success rate of 11.62%.</li>
+</ul>
+</div>
+
+
+<div class="divisions">
+<h2 id="crt">CERTIFICATIONS</h2>
+<table style="width: 100%;">
+	<tr>
+	  <td style="width: 20%;"><img src="Pictures/slide1.jpg" alt="picture 1" id="pic1" height="150" width="150"></td>
+	  <td style="width: 20%;"><img src="Pictures/slide2.jpg" alt="picture 2" id="pic2" height="150" width="150"></td>
+	  <td style="width: 20%;"><img src="Pictures/slide3.jpg" alt="picture 3" id="pic3" height="200" width="200"></td>
+	  <td style="width: 20%;"><img src="Pictures/slide4.jpg" alt="picture 4" id="pic4" height="150" width="150"></td>
+	  <td style="width: 20%;"><img src="Pictures/slide5.jpg" alt="picture 5" id="pic5" height="150" width="150"></td>
+	</tr>
+</table>
+</div>
+
+
+<div class="divisions">
+	<h2 id="rsh">RESEARCH & PROJECTS</h2>
+	<table>
+		<tr>
+		  <td style="text-align: left;">University of South Carolina - <span style="font-style: italic;">Graduate Teaching Assistant</span></td>
+		  <td style="text-align: right;">Aug 2023 - Till Date</td>
+		</tr>
+	</table>
+	<ul>
+		<li style="text-align: justify;">Instructed a lab course on python fundamentals like datatypes, conditional executions, loops, functions, modules and scopes usages using Turtle. </li>
+		<li style="text-align: justify;">Educated and trained undergraduate students on file handling, Object Oriented Programming and few other packages.</li>
+		<li style="text-align: justify;">Mentored students in developing a project and graded their weekly lab assignments.</li>
+	</ul>
+	<table>
+		<tr>
+		  <td style="text-align: left;">Research Works :</td>
+		</tr>
+	</table>
+	<ul>
+		<li style="text-align: justify;">Recently working on Large Language Models, using Language Models to fine tune and 
+			develope a model for material science using the research papers.</li>
+		<li style="text-align: justify;">Worked on Pneumonia detection on Computer Vision using Deep Learning by tweaking the architectures of U-Net, DenseNet121, and CheXNet, and optimized the efficiency to 93%.</li>
+		<li style="text-align: justify;">Mastered C# programming from the <strong>Capgemini</strong> experts with hands on real-world project in developing a
+			back end using the .NET framework for an online store.</li>
+		<li style="text-align: justify;">Currently working under Professor Dr. Jianjun Hu on the image
+			processing terahertz imaging of breast tumors <strong>“Terahertz Imaging and
+			Characterization Protocol for Freshly Excised Breast Cancer
+			Tumors”</strong> developed by University of Arkansas.</li>
+		<li style="text-align: justify;">Presented a paper on <strong>Hierarchical Control of Community Grid for
+			Residential Houses</strong> at INDICON 2018, 15th IEEE India Council
+			International Conference organized by IEEE Madras at Amrita Vishwa
+			Vidyapeetham, Coimbatore.</li>
+	</ul>
+</div>
+
+<div class="divisions">
+</main>
+<footer>
+<h2>This Concludes the Experience and Works of Abishek Franklin Mariadoss</h2>
+</footer>
+</div>
+</body>
+</html>
