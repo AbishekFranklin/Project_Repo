@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Abishek Franklin Mariadoss</title>
+    <!-- Include any CSS files here -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Add CSS styles for the layout here */
+        .row {
+            display: flex;
+            align-items: center;
+        }
+        .column {
+            flex: 1;
+            padding: 10px;
+        }
+        .image-container {
+            max-width: 100%;
+        }
+        /* Add a border to the table */
+        table {
+            border: 1px solid #000;
+            border-collapse: collapse;
+        }
+        /* Add a border to table cells (td) */
+        td {
+            border: 1px solid #000;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>
+                <form id="upload-form" action="/run_script" method="post" enctype="multipart/form-data" onsubmit="showLoadingMessage()">
+                    <!-- Input element for file upload -->
+                    <input type="file" name="file" accept=".jpeg, .jpg" id="file-input" onchange="displayUploadedImage(this)">
+                </form>
+            </td>
+            <td>
+                <!-- Generate Face button -->
+                <button class="btn" type="button" id="generate-button">Generate Face</button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <!-- Uploaded Image section -->
+                <div class="row">
+                    <div class="column">
+                        <img src="#" alt="Uploaded Image" id="uploaded-image" style="display: none;" class="image-container">
+                    </div>
+                    <div class="column">
+                        <!-- Loading message (initially hidden) -->
+                        <h2 id="loading-message" style="display: none;">Loading...</h2>
+                        <!-- Latest Image section (visible after execution) -->
+                        <h2 id="latest-image-heading" style="display: none;">Latest Image</h2>
+                        <img src="#" alt="Latest Image" id="latest-image" style="display: none;" class="image-container">
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Add jQuery library -->
+
+    <script>
+        // Function to display the uploaded image
+        function displayUploadedImage(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+    
+                reader.onload = function (e) {
+                    // Display the uploaded image
+                    var uploadedImageElement = document.getElementById('uploaded-image');
+                    uploadedImageElement.src = e.target.result;
+                    uploadedImageElement.style.display = 'block'; // Show the image
+                };
+    
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    
+        // Handle button click using jQuery
+        $('#generate-button').on('click', function () {
+            // Display the loading message
+            $('#loading-message').show();
+    
+            // Create a FormData object to send the file
+            var formData = new FormData($('#upload-form')[0]);
+    
+            // Make an AJAX request to run the script
+            $.ajax({
+                type: 'POST',
+                url: '/run_script',
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function (response) {
+                    // Display the server response in the result message div
+                    $('#loading-message').text(response.message);
+    
+                    // Check if the response message is "Script executed successfully"
+                    if (response.message === "Script executed successfully") {
+                        // Update the "Latest Image" section with the retrieved image URL
+                        $('#latest-image').attr('src', response.latest_image_path);
+                        $('#latest-image-heading').show(); // Show the "Latest Image" heading
+                        $('#latest-image').show(); // Show the latest image
+    
+                        // Hide the loading message
+                        $('#loading-message').hide();
+                    }
+                },
+                error: function (error) {
+                    console.error(error);
+                }
+            });
+        });
+    
+        // Function to check for the latest image and display it
+        // Function to check for the latest image and display it
+        function checkForLatestImage() {
+            // Make an AJAX request to check for the latest image
+            $.ajax({
+                type: 'GET',
+                url: '/latest_output_image',
+                success: function (data) {
+                    // Update the "Latest Image" section with the retrieved image URL
+                    $('#latest-image').attr('src', data); // Set the src attribute to the image URL
+                    $('#latest-image-heading').show(); // Show the "Latest Image" heading
+                    $('#latest-image').show(); // Show the latest image
+
+                    // Hide the loading message
+                    $('#loading-message').hide();
+                },
+                error: function (error) {
+                    console.error(error);
+                }
+            });
+        }
+
+        // Call the checkForLatestImage function when the page loads
+        $(document).ready(function () {
+            checkForLatestImage();
+            // Set an interval to check for the latest image every 10 seconds (adjust as needed)
+            setInterval(checkForLatestImage, 10000); // 10000 milliseconds (10 seconds)
+        });
+    </script>    
+</body>
+</html>
