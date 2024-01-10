@@ -1,0 +1,49 @@
+/* Add any desired styles here */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    text-align: center;
+    padding: 20px;
+}
+
+button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Add CSS styles for the layout here */
+.row {
+  display: flex;
+  align-items: center;
+}
+.column {
+  flex: 1;
+  padding: 10px;
+}
+  .image-container {
+  max-width: 100%;
+}
+
+/* Add a border to the table */
+table {
+  border: 1px solid #000;
+  border-collapse: collapse;
+}
+
+/* Add a border to table cells (td) */
+td {
+  border: 1px solid #000;
+  padding: 10px;
+}
+
+/* Add more styles as needed */
